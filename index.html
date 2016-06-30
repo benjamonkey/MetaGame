@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>MetaGame</title>
+  </head>
+  <body ng-controller="mainController">
+    <ui-view></ui-view>
+
+    <section class="container">
+      <section class="header"><img class="tablogo" src="img/LogoMakr copy.png" alt="" />
+        <section class="wrapper">
+          <div class="gameMenu menuitem">HOME</div>
+          <div class="shop menuitem">SHOP HERE</div>
+          <div class="searchBox menuitem"><form ng-submit='getGameName(searchTB)' class="">
+              <input ng-model='searchTB' type="textbox" name="name" placeholder='Search...' class="search">
+            </form>
+
+          </div>
+          <div class="dropdown" id="dropdownham">
+
+            <button class="hambutton"><img class="hamburger" src="img/LogoMakr (7).png" alt="" /></button>
+              <div class="dropdown-content">
+                <a href="#">Log In</a>
+                <a href="#">Account</a>
+                <a href="#">Sign Up</a>
+
+            </div>
+          </div>
+
+
+          </div>
+        </section>
+
+
+      </section>
+      <div class="viewing">Home</div>
+      <section class="tabs">
+        <div class="dropdown">
+
+          <button class="dropbtn" id="tab">PLATFORM<img class="arrow" src="img/dropdown.png" alt="" /></button>
+            <div class="dropdown-content">
+              <a href="#">PC</a>
+              <a href="#">Playstation 4</a>
+              <a href="#">Xbox One</a>
+              <a href="#">Wii</a>
+              <a href="#">Old School</a>
+
+          </div>
+
+        </div>
+        <div class="dropdown">
+
+          <button class="dropbtn" id="tab">GENRE<img class="arrow" src="img/dropdown.png" alt="" /></button>
+            <div class="dropdown-content">
+              <a href="#">First Person Shooter</a>
+              <a href="#">SandBox</a>
+              <a href="#">Survival</a>
+              <a href="#">Side-Scroller</a>
+              <a href="#">MMO</a>
+              <a href="#">MOBA</a>
+              <a href="#">Zombie</a>
+              <a href="#">RTS</a>
+          </div>
+        </div>
+        <div class="dropdown">
+
+          <button class="dropbtn" id="tab">RELESE DATE<img class="arrow" src="img/dropdown.png" alt="" /></button>
+            <div class="dropdown-content">
+              <a href="#">Upcoming Releases</a>
+              <a href="#">2010-2016</a>
+              <a href="#">< 2010</a>
+          </div>
+        </div>
+        <div class="dropdown">
+
+          <button class="dropbtn" id="tab">MORE<img class="arrow" src="img/dropdown.png" alt="" /></button>
+            <div class="dropdown-content">
+              <a href="#">suh dude</a>
+              <a href="#">troll site</a>
+              <a href="#">get pitted</a>
+          </div>
+        </div>
+      </section>
+      <section class="gameContainer">
+        <div class="gameContent">
+          <span ng-repeat="game in gameNames">
+            <div class="gameart" ><img class="picture" src="{{game.image.small_url}}" alt="" /></div>
+            <div class="gametitle">{{game.name}}</div>
+          </span>
+        </div>
+      </section>
+
+    </section>
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/mainController.js"></script>
+    <script src="js/mainService.js"></script>
+    <script src="js/coverController.js"></script>
+    <script src="js/oldschoolController.js"></script>
+    <script src="js/pcController.js"></script>
+    <script src="js/ps4Controller.js"></script>
+    <script src="js/wiiContoller.js"></script>
+    <script src="js/xboxController.js"></script>
+    <script src="server.js"></script>
+    <script src="css/main.css"></script>
+
+  </body>
+</html>
