@@ -11,8 +11,8 @@
     <section class="container">
       <section class="header"><img class="tablogo" src="img/LogoMakr copy.png" alt="" />
         <section class="wrapper">
-          <div class="gameMenu menuitem">HOME</div>
-          <div class="shop menuitem">SHOP HERE</div>
+          <div class="home menuitem"><button id="menubutton" href="#">HOME</button></div>
+          <div class="shop menuitem"><button id="menubutton" href="#">SHOP HERE</button></div>
           <div class="searchBox menuitem"><form ng-submit='getGameName(searchTB)' class="">
               <input ng-model='searchTB' type="textbox" name="name" placeholder='Search...' class="search">
             </form>
@@ -41,11 +41,11 @@
 
           <button class="dropbtn" id="tab">PLATFORM<img class="arrow" src="img/dropdown.png" alt="" /></button>
             <div class="dropdown-content">
-              <a href="#">PC</a>
-              <a href="#">Playstation 4</a>
-              <a href="#">Xbox One</a>
-              <a href="#">Wii</a>
-              <a href="#">Old School</a>
+              <a href="pc">PC</a>
+              <a href="ps4">Playstation 4</a>
+              <a href="xbox">Xbox One</a>
+              <a href="wii">Wii</a>
+              <a href="oldschool">Old School</a>
 
           </div>
 
@@ -87,7 +87,12 @@
         <div class="gameContent">
           <span ng-repeat="game in gameNames">
             <div class="gameart" ><img class="picture" src="{{game.image.small_url}}" alt="" /></div>
-            <div class="gametitle">{{game.name}}</div>
+            <div class="gametitle">
+              <div>{{game.name}}</div>
+              <div ng-repeat="platform in game.platforms">{{platform.name}}</div>
+              <div>{{game.original_release_date}}</div>
+
+            </div>
           </span>
         </div>
       </section>

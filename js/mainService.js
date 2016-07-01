@@ -4,7 +4,7 @@ angular.module('app').service('mainService', function($http, $q){
     var deferred = $q.defer();
      $http({
       method: "GET",
-      url: "http://localhost:3000/test/" + searchTB
+      url: "http://localhost:3000/" + searchTB
     }).then(function(response){
       console.log(response);
       deferred.resolve(response.data.results);

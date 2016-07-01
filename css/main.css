@@ -31,11 +31,18 @@ body {
   flex: 1;
   text-align: center;
   line-height: 40px;
-}
-
-.gameMenu{
 
 }
+#menubutton{
+  font-size: 17px;
+  border: none;
+  background: none;
+}
+#menubutton:hover{
+    color: orange;
+    font-size: 19px;
+}
+
 .shop{
   margin-left: 20px;
 
