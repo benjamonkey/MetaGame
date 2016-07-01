@@ -4,8 +4,13 @@ angular.module('app', ['ui.router'])
   $stateProvider
             .state('home',{
                 url:'/',
-                templateUrl: "./views/home.html",
+                templateUrl: "./views/searchresults.html",
                 controller: "mainController",
+            })
+            .state('game',{
+                url:'/game/:game',
+                controller:'singleGameController',
+                templateUrl: "./views/singleGame.html"
             })
             .state('pc',{
                 url:'/pc',

@@ -41,6 +41,7 @@ body {
 #menubutton:hover{
     color: orange;
     font-size: 19px;
+    cursor: pointer;
 }
 
 .shop{
@@ -60,13 +61,16 @@ body {
   width: 50px;
   height: 40px;
   float: right;
-  margin-right: 20px;
+  margin-right: 40px;
 
 }
 .hambutton{
   background: none;
   border: none;
 
+}
+.hamburger:hover{
+  cursor: pointer;
 
 }
 #dropdownham{
@@ -82,8 +86,9 @@ body {
 }
 .viewing{
   height: 80px;
-  width: 400px;
+  width: 600px;
   font-size: 50px;
+  margin-top: 40px;
 }
 .tabs{
   height: 80px;
@@ -140,7 +145,7 @@ body {
     display: block;
 }
 
-.dropdown-content a:hover {background-color: gray}
+.dropdown-content a:hover {background-color: orange}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -149,6 +154,7 @@ body {
 .dropdown:hover .dropbtn {
     color: orange;
     font-size: 19px;
+    font-weight: bold;
 }
 
 .gameContainer{
