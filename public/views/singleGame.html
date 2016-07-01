@@ -1,0 +1,17 @@
+<p class="title">{{gameID.name}}</p>
+<section class="singlecontainer">
+
+  <span class="img" ><img src="{{gameID.image.small_url}}" alt="" /></span>
+  <span class="gamedescription">
+    <p><strong>Description:</strong><br> {{gameID.deck}}</p>
+    <p><strong>Release Date:</strong><br> {{gameID.original_release_date}}</p>
+    <p><strong>Platform(s):</strong><br>
+      <span ng-repeat="platform in gameID.platforms">{{platform.name}}<br></span>
+    </p>
+
+
+  </span>
+
+
+
+</section>

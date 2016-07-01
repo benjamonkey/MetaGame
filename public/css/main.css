@@ -8,6 +8,9 @@ body {
 
 
 }
+
+/*HEADER BAR CSS*/
+
 .header{
   width: 100%;
   height: 20vh;
@@ -23,6 +26,8 @@ body {
 
 }
 
+
+
 .menuitem{
   display: inline-block;
   height: 40px;
@@ -30,18 +35,18 @@ body {
   vertical-align: top;
   flex: 1;
   text-align: center;
-  line-height: 40px;
+  line-height: 50px;
 
 }
 #menubutton{
-  font-size: 17px;
+  font-size: 18px;
   border: none;
   background: none;
 }
 #menubutton:hover{
-    color: orange;
-    font-size: 19px;
-    cursor: pointer;
+  color: orange;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .shop{
@@ -57,6 +62,9 @@ body {
   font-size: 16px;
   margin-left: 30px;
 }
+
+/*HAMBURGER CSS*/
+
 .hamburger{
   width: 50px;
   height: 40px;
@@ -82,14 +90,20 @@ body {
   position: absolute;
   background-color: white;
   min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
+
+/*CURRENT VIEWING*/
+
 .viewing{
   height: 80px;
   width: 600px;
   font-size: 50px;
   margin-top: 40px;
 }
+
+/*TAB CSS*/
+
 .tabs{
   height: 80px;
   width: 100%;
@@ -106,7 +120,7 @@ body {
   text-align: center;
   line-height: 45px;
   margin: 5px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 .arrow{
   height: 25px;
@@ -116,6 +130,9 @@ body {
   display: flex;
 
 }
+
+/*DROPDOWN CSS*/
+
 .dropbtn {
     background-color: #4CAF50;
     color: black;
@@ -135,7 +152,7 @@ body {
     position: absolute;
     background-color: #f9f9f9;
     min-width: 250px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 
 .dropdown-content a {
@@ -157,6 +174,9 @@ body {
     font-weight: bold;
 }
 
+
+/*GAME SECTION*/
+
 .gameContainer{
   width: 100%;
   height: auto;
@@ -171,7 +191,7 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
   width: 70%;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.6);
 
 }
 .gameart{
@@ -185,4 +205,32 @@ body {
   text-align: center;
   font-size: 15px;
   color: black;
+}
+
+
+/*SINGLE GAME VIEW CSS*/
+
+.title{
+  font-size: 20px;
+  text-decoration: underline;
+}
+.singlecontainer{
+  width: 100%;
+  height: auto;
+  display: flex;
+
+}
+.gamedescription{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+
+
+}
+.img{
+  width: auto;
+  height: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+  margin-bottom: 20px;
 }
