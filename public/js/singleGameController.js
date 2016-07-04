@@ -1,14 +1,14 @@
 angular.module('app').controller('singleGameController', function($scope, $state, mainService){
 
+  $scope.test = "wubwub";
   console.log($state.params.game)
-  $scope.getGameName = function(gameID){
-    mainService.getVideoGameByName(gameID).then(function(response){
-      console.log(response);
-      $scope.gameID = response[0];
-
+  $scope.getGameName = function(searchTB){
+    mainService.getVideoGameByName(searchTB).then(function(response){
+      $scope.gameID = response;
     })
-
   }
+
+
   $scope.getGameName($state.params.game);
 
 })

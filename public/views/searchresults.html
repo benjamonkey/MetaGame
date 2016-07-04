@@ -1,10 +1,10 @@
 <section class="gameContainer">
   <div class="gameContent">
     <span ng-repeat="game in gameNames">
-      <div ng-click="click(game.name)" class="gameart" ><img class="picture" src="{{game.image.small_url}}" alt="" /></div>
+      <div ng-click="click(game.id)" class="gameart" ><img class="picture" ng-src="{{game.image.small_url}}" alt="" /></div>
       <div class="gametitle">
         <div>{{game.name}}</div>
-        
+
 
       </div>
     </span>

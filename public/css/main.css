@@ -211,8 +211,9 @@ body {
 /*SINGLE GAME VIEW CSS*/
 
 .title{
-  font-size: 20px;
+  font-size: 22px;
   text-decoration: underline;
+  margin-left: 3vw;
 }
 .singlecontainer{
   width: 100%;

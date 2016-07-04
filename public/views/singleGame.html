@@ -1,13 +1,24 @@
+
 <p class="title">{{gameID.name}}</p>
 <section class="singlecontainer">
 
-  <span class="img" ><img src="{{gameID.image.small_url}}" alt="" /></span>
+  <span class="img" ><img ng-src="{{gameID.image.small_url}}" alt="" /></span>
   <span class="gamedescription">
     <p><strong>Description:</strong><br> {{gameID.deck}}</p>
     <p><strong>Release Date:</strong><br> {{gameID.original_release_date}}</p>
     <p><strong>Platform(s):</strong><br>
       <span ng-repeat="platform in gameID.platforms">{{platform.name}}<br></span>
     </p>
+    <p><strong>Developer(s):</strong><br>
+      <span ng-repeat="developer in gameID.developers">{{developer.name}}<br></span>
+    </p>
+    <p><strong>Genre(s):</strong><br>
+      <span ng-repeat="genre in gameID.genres">{{genre.name}}<br></span>
+    </p>
+    <p><strong>Similar Game(s):</strong><br>
+      <span ng-repeat="similar_game in gameID.similar_games">{{similar_game.name}}<br></span>
+    </p>
+    
 
 
   </span>
