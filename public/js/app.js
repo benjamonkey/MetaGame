@@ -35,10 +35,10 @@ angular.module('app', ['ui.router'])
                 controller: 'wiiController',
 
             })
-            .state('oldschool',{
-                url:'/oldschool',
-                templateUrl: "./views/oldschool.html",
-                controller: 'oldschoolController',
+            .state('old',{
+                url:'/old',
+                templateUrl: "./views/old.html",
+                controller: 'oldController',
 
             });
 

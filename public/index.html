@@ -12,9 +12,9 @@
       <section class="header"><img class="tablogo" src="img/LogoMakr copy.png" alt="" />
         <section class="wrapper">
           <div class="home menuitem"><button id="menubutton" ui-sref="home">HOME</button></div>
-          <div class="shop menuitem"><button id="menubutton" href="#">SHOP HERE</button></div>
+          <div class="shop menuitem"><button id="menubutton" href="http://www.gamestop.com/" target="_blank" >SHOP HERE</button></div>
           <div class="searchBox menuitem"><form ng-submit='getGameName(searchTB)' class="">
-              <input ng-model='searchTB' type="textbox" name="name" placeholder='Search...' class="search">
+              <input ng-model='searchTB' type="textbox" name="name" placeholder='Search for specific game...' class="search">
             </form>
 
           </div>
@@ -35,17 +35,17 @@
 
 
       </section>
-      <div class="viewing">Most Recent Games:</div>
+      <div class="viewing">Most Popular Games:</div>
       <section class="tabs">
         <div class="dropdown">
 
           <button class="dropbtn" id="tab">PLATFORM<img class="arrow" src="img/dropdown.png" alt="" /></button>
             <div class="dropdown-content">
-              <a href="pc">PC</a>
-              <a href="ps4">Playstation 4</a>
-              <a href="xbox">Xbox One</a>
-              <a href="wii">Wii</a>
-              <a href="oldschool">Old School</a>
+              <a href="#/pc">PC</a>
+              <a href="#/ps4">Playstation 4</a>
+              <a href="#/xbox">Xbox One</a>
+              <a href="#/wii">Wii</a>
+              <a href="#/old">Old School</a>
 
           </div>
 
@@ -54,7 +54,7 @@
 
           <button class="dropbtn" id="tab">GENRE<img class="arrow" src="img/dropdown.png" alt="" /></button>
             <div class="dropdown-content">
-              <a href="#">First Person Shooter</a>
+              <a ng-repeat="genre in gameID.genres">First Person Shooter</a>
               <a href="#">SandBox</a>
               <a href="#">Survival</a>
               <a href="#">Side-Scroller</a>
@@ -64,25 +64,18 @@
               <a href="#">RTS</a>
           </div>
         </div>
-        <div class="dropdown">
 
-          <button class="dropbtn" id="tab">RELESE DATE<img class="arrow" src="img/dropdown.png" alt="" /></button>
-            <div class="dropdown-content">
-              <a href="#">Upcoming Releases</a>
-              <a href="#">2010-2016</a>
-              <a href="#">< 2010</a>
-          </div>
-        </div>
         <div class="dropdown">
 
           <button class="dropbtn" id="tab">MORE<img class="arrow" src="img/dropdown.png" alt="" /></button>
             <div class="dropdown-content">
-              <a href="#">suh dude</a>
-              <a href="#">troll site</a>
-              <a href="#">get pitted</a>
+              <a href="https://www.esrb.org/ratings/ratings_guide.aspx" target="_blank">ESRB Ratings</a>
+              <a href="http://www.metacritic.com/browse/games/release-date/coming-soon/all/date" target="_blank">Upcomming Releases</a>
+              <a href="https://wallpaperscraft.com/catalog/games/1920x1080" target="_blank">Video Game Wallpapers</a>
           </div>
         </div>
       </section>
+
       <ui-view></ui-view>
 
     </section>
