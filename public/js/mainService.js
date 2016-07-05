@@ -36,6 +36,15 @@ angular.module('app').service('mainService', function($http, $q){
     })
   }
 
+  // this.getGenre = function(){
+  //   var genre = location.hash.substring(2);
+  //   return $http.get('/gamepopular/?genre='+ genre).then(function(resp){
+  //     return resp.data.map(function(e){
+  //       return e.results;
+  //     })
+  //   })
+  // }
+
 
 
 })

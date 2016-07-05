@@ -99,6 +99,31 @@ var oldGames = `8307
 8251
 14528
 21595`
+var fps = `18162
+54453
+20654
+1539
+36113
+36067
+48190
+42905
+39035
+26782
+48754
+48618
+51102`
+var mmo = `44468
+26770
+21223
+33394
+24205
+36171
+45837
+42844
+49884
+49833
+12107`
+var moba = ``
 
 
 function makeReq(gameID){
@@ -119,6 +144,7 @@ app.get('/gamepopular', function(req, res){
      axios.all(pcArr)
        .then(resp => res.status(200).send(resp.map(e => e.data)))
        .catch(err => res.status(500).send(err));
+
   }else if (req.query.platform === 'ps4') {
     ps4Games.split(`\n`).forEach( e => ps4Arr.push(makeReq(e)));
      axios.all(ps4Arr)
