@@ -1,6 +1,6 @@
 angular.module('app').service('mainService', function($http, $q){
 
-  var host = '//localhost:3000'
+  var host = '//localhost:3000';
 
   this.getVideoGamesByName = function(searchTB){
     var deferred = $q.defer();
@@ -26,65 +26,15 @@ angular.module('app').service('mainService', function($http, $q){
     return deferred.promise;
   };
 
-  this.getVideoGameByPC = function(searchTB){
-    var deferred = $q.defer();
-     $http({
-      method: "GET",
-      url: host + "/pc/" + searchTB
-    }).then(function(response){
-      console.log(response);
-      deferred.resolve(response.data.results);
-    })
-    return deferred.promise;
-  };
 
-  this.getVideoGameByPS4 = function(searchTB){
-    var deferred = $q.defer();
-     $http({
-      method: "GET",
-      url: host + "/ps4/" + searchTB
-    }).then(function(response){
-      console.log(response);
-      deferred.resolve(response.data.results);
+  this.getPop = function(){
+    var platform = location.hash.substring(2);
+    return $http.get('/gamepopular/?platform='+ platform).then(function(resp){
+      return resp.data.map(function(e){
+        return e.results;
+      })
     })
-    return deferred.promise;
-  };
-
-  this.getVideoGameByXBOX = function(searchTB){
-    var deferred = $q.defer();
-     $http({
-      method: "GET",
-      url: host + "/xbox/" + searchTB
-    }).then(function(response){
-      console.log(response);
-      deferred.resolve(response.data.results);
-    })
-    return deferred.promise;
-  };
-
-  this.getVideoGameByWII = function(searchTB){
-    var deferred = $q.defer();
-     $http({
-      method: "GET",
-      url: host + "/wii/" + searchTB
-    }).then(function(response){
-      console.log(response);
-      deferred.resolve(response.data.results);
-    })
-    return deferred.promise;
-  };
-
-  this.getVideoGameByOLD = function(searchTB){
-    var deferred = $q.defer();
-     $http({
-      method: "GET",
-      url: host + "/old/" + searchTB
-    }).then(function(response){
-      console.log(response);
-      deferred.resolve(response.data.results);
-    })
-    return deferred.promise;
-  };
+  }
 
 
 

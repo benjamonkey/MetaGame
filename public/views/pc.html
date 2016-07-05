@@ -1,1 +1,12 @@
+<section class="gameContainer">
+  <div class="gameContent">
+    <span ng-repeat="popgame in popgames">
+      <div ng-click="click(popgame.id)" class="gameart" ><img class="picture" ng-src="{{popgame.image.small_url}}" alt="" /></div>
+      <div class="gametitle">
+        <div>{{popgame.name}}</div>
 
+
+      </div>
+    </span>
+  </div>
+</section>

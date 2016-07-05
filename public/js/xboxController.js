@@ -3,7 +3,7 @@ angular.module('app').controller('xboxController', function($scope, $state, main
 
   console.log($state.params.game)
   $scope.getGamePlatform= function(searchTB){
-    mainService.getVideoGameByXBOX(searchTB).then(function(response){
+    mainService.getPop(searchTB).then(function(response){
       $scope.gameID = response;
     })
   }

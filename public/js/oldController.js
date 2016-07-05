@@ -1,9 +1,9 @@
-angular.module('app').controller('oldschoolController', function($scope, $state, mainService){
+angular.module('app').controller('oldController', function($scope, $state, mainService){
 
-  
+
   console.log($state.params.game)
   $scope.getGamePlatform = function(searchTB){
-    mainService.getVideoGameByOLD(searchTB).then(function(response){
+    mainService.getPop(searchTB).then(function(response){
       $scope.gameID = response;
     })
   }

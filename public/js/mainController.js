@@ -11,5 +11,9 @@ angular.module('app').controller('mainController', function($scope, $state, main
     $state.go("game", {game: id});
   }
 
+  mainService.getPop().then(function(response){
+    $scope.popgames = response;
+  });
+
 
 })
