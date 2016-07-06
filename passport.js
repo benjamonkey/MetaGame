@@ -1,0 +1,1 @@
+// var configAuth = require('auth');

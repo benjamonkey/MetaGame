@@ -21,10 +21,10 @@
           <div class="dropdown" id="dropdownham">
 
             <button class="hambutton"><img class="hamburger" src="img/LogoMakr (7).png" alt="" /></button>
-              <div class="dropdown-content">
-                <a href="#">Log In</a>
-                <a href="#">Account</a>
-                <a href="#">Sign Up</a>
+              <div id="ham-style">
+                <a href="#/login">Log In</a>
+                <a href="account">Account</a>
+                <a href="signup">Sign Up</a>
 
             </div>
           </div>
@@ -55,9 +55,9 @@
           <button class="dropbtn" id="tab">GENRE<img class="arrow" src="img/dropdown.png" alt="" /></button>
             <div class="dropdown-content">
               <a ng-repeat="genre in gameID.genres">First Person Shooter</a>
-              <a href="#">First-Person-Shooter</a>
-              <a href="#">RPG</a>
-              <a href="#">MOBA</a>
+              <a href="#/fps" onclick='location.reload(true);'>First-Person-Shooter</a>
+              <a href="#/rpg" onclick='location.reload(true);'>RPG</a>
+              <a href="#/moba" onclick='location.reload(true);'>MOBA</a>
           </div>
         </div>
 
@@ -73,8 +73,18 @@
       </section>
 
       <ui-view></ui-view>
+      <div class="footerwrap">
+        <footer class="footer">
+          <a class="twitter" href="https://twitter.com/chucknorris?lang=en"></a>
+          <a class="facebook" href="https://www.facebook.com/trollface.ragefaces/"></a>
+          <a class="email" href="https://mail.google.com/mail/?view=cm&fs=1&to=UmadBro?@trolololol.com&su=SUBJECT&body=BODY&bcc=someone.wholovesbeingtrolled@trololo.com"></a>
+        </footer>
+      </div>
+
+
 
     </section>
+
 
 
 
@@ -94,6 +104,11 @@
     <script src="js/ps4Controller.js"></script>
     <script src="js/wiiContoller.js"></script>
     <script src="js/xboxController.js"></script>
+    <script src="js/fpsController.js"></script>
+    <script src="js/mobaController.js"></script>
+    <script src="js/rpgController.js"></script>
+    <script src="js/loginController.js"></script>
+    <script src="models/review.js"></script>
 
 
 

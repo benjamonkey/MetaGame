@@ -35,10 +35,40 @@ angular.module('app', ['ui.router'])
                 controller: 'wiiController',
 
             })
+            .state('fps',{
+                url:'/fps',
+                templateUrl: "./views/fps.html",
+                controller: 'fpsController',
+
+            })
+            .state('moba',{
+                url:'/moba',
+                templateUrl: "./views/moba.html",
+                controller: 'mobaController',
+
+            })
+            .state('rpg',{
+                url:'/rpg',
+                templateUrl: "./views/rpg.html",
+                controller: 'rpgController',
+
+            })
             .state('old',{
                 url:'/old',
                 templateUrl: "./views/old.html",
                 controller: 'oldController',
+
+            });
+            .state('login',{
+                url:'/login',
+                templateUrl: "./views/login.html",
+                controller: 'loginController',
+
+            })
+            .state('review',{
+                url:'/review',
+                templateUrl: "./views/review.html",
+                controller: 'reviewController',
 
             });
 

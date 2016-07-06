@@ -14,6 +14,9 @@ angular.module('app').controller('mainController', function($scope, $state, main
   mainService.getPop().then(function(response){
     $scope.popgames = response;
   });
+  mainService.getGenre().then(function(response){
+    $scope.popgames = response;
+  });
 
 
 })

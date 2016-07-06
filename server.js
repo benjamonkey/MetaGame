@@ -1,15 +1,21 @@
-
+var mongoose = require('mongoose');
+// var session = require('express-session');
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-app.use(bodyParser.json());
+
+var review = require('./models/review');
+
 var axios = require('axios');
 var cors = require('cors');
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
+app.use(bodyParser.json());
 var data = [];
 
-app.listen(3000, function(){console.log("we on port 3000")});
+
+app.listen(3000, function(){console.log("suhhh dude port 3000 is amaze")});
+mongoose.connect('mongodb://localhost/metagame');
 
 app.get('/games/:searchTB', function(req, res){
   console.log("getting games by name");
@@ -22,6 +28,51 @@ app.get('/game/:gameID', function(req, res){
   axios.get(`http://www.giantbomb.com/api/game/${req.params.gameID}/?api_key=53f52d0efe71c57da724633715458b37cd07a278&format=json`)
    .then( resp => res.send(resp.data))
 })
+
+app.post('/api/review', function(req, res) {
+  console.log('POST review');
+      review.create(req.body, function(err, savedReview){
+        if (err){
+          res.status(500).json(err);
+        }else {
+          res.status(200).json(savedReview);
+  }
+
+});
+
+});
+
+app.get('/api/review', function(req, res) {
+  console.log('GET reviews');
+      review.find(req.body, function(err, savedReview){
+        if (err){
+          res.status(500).json(err);
+        }else {
+          res.status(200).json(savedReview);
+  }
+
+});
+
+});
+app.delete('/api/review/:id', function(req, res) {
+  console.log(req.params.id);
+      review.findOneAndRemove({_id:req.params.id}, function(err, reviews){
+        if (err){
+          res.status(500).json(err);
+        }else {
+          res.status(200).json(reviews);
+  }
+
+});
+
+});
+
+
+// app.get('/auth/facebook', passport.authenticate('facebook'));
+//
+// app.get('/auth/facebook/callback',
+//   passport.authenticate('facebook', { successRedirect: '/account',
+//                                       failureRedirect: '/' }));
 
 var pcGames = `48190
 44468
@@ -99,7 +150,7 @@ var oldGames = `8307
 8251
 14528
 21595`
-var fps = `18162
+var fpsGames = `18162
 54453
 20654
 1539
@@ -111,8 +162,11 @@ var fps = `18162
 26782
 48754
 48618
-51102`
-var mmo = `44468
+51102
+46552
+17448`
+
+var rpgGames = `44468
 26770
 21223
 33394
@@ -122,8 +176,21 @@ var mmo = `44468
 42844
 49884
 49833
-12107`
-var moba = ``
+12107
+22516
+48901
+48755
+21958`
+var mobaGames = `24024
+32887
+36241
+36739
+46940
+27328
+43487
+51414
+34265
+52342`
 
 
 function makeReq(gameID){
@@ -131,12 +198,15 @@ function makeReq(gameID){
 }
 
 app.get('/gamepopular', function(req, res){
-  console.log("popularity");
+  console.log("get dat popular games");
   var pcArr = [];
   var ps4Arr = [];
   var xboxArr = [];
   var wiiArr = [];
   var oldArr = [];
+  var mobaArr = [];
+  var fpsArr = [];
+  var rpgArr = [];
 
 
   if (req.query.platform === 'pc'){
@@ -165,7 +235,27 @@ app.get('/gamepopular', function(req, res){
      axios.all(oldArr)
        .then(resp => res.status(200).send(resp.map(e => e.data)))
        .catch(err => res.status(500).send(err));
+  }else if (req.query.genre === 'moba') {
+    mobaGames.split(`\n`).forEach( e => mobaArr.push(makeReq(e)));
+     axios.all(mobaArr)
+       .then(resp => res.status(200).send(resp.map(e => e.data)))
+       .catch(err => res.status(500).send(err));
+  }else if (req.query.genre === 'fps') {
+    fpsGames.split(`\n`).forEach( e => fpsArr.push(makeReq(e)));
+     axios.all(fpsArr)
+       .then(resp => res.status(200).send(resp.map(e => e.data)))
+       .catch(err => res.status(500).send(err));
+  }else if (req.query.genre === 'rpg') {
+    rpgGames.split(`\n`).forEach( e => rpgArr.push(makeReq(e)));
+     axios.all(rpgArr)
+       .then(resp => res.status(200).send(resp.map(e => e.data)))
+       .catch(err => res.status(500).send(err));
   }
+
+
+
+
+
 
 
 })

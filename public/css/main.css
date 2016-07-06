@@ -1,5 +1,7 @@
 body {
     background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-wall-Seamless-Pattern-For-Website-Background.jpg");
+    margin: 0;
+    padding: 0;
 }
 
 .container{
@@ -86,13 +88,38 @@ body {
   float: right;
 
 }
-.dropham-content{
-  display: none;
-  position: absolute;
-  background-color: white;
-  min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+#ham-style {
+
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 50px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+
 }
+
+#ham-style a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    
+}
+
+#ham-style a:hover {background-color: orange}
+
+.dropdown:hover #ham-style {
+    display: block;
+
+}
+
+.dropdown:hover .hambutton{
+    color: orange;
+    font-size: 19px;
+    font-weight: bold;
+
+}
+
 
 /*CURRENT VIEWING*/
 
@@ -152,7 +179,7 @@ body {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 250px;
+    min-width: 255px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
 }
 
@@ -235,4 +262,45 @@ body {
   height: auto;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
   margin-bottom: 20px;
+}
+
+/*FOOTER CSS*/
+.footerwrap{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 120px;
+  margin-bottom: 40px;
+}
+.footer{
+  position: relative;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+
+
+}
+.twitter{
+  background-size: contain;
+  background-image: url("https://cdn1.iconfinder.com/data/icons/capsocial/500/twitter-512.png");
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+}
+.facebook{
+  background-size: contain;
+  background-image: url("https://image.freepik.com/free-icon/facebook-symbol_318-37686.png");
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+}
+.email{
+  background-size: contain;
+  background-image: url("https://world.utexas.edu/io/images/isss/email%20icon.png");
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
 }
