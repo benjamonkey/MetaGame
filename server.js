@@ -1,9 +1,10 @@
 var mongoose = require('mongoose');
-// var session = require('express-session');
+var session = require('express-session');
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
-
+var passport = require('passport');
+var User = require('./user');
 var review = require('./models/review');
 
 var axios = require('axios');
@@ -11,8 +12,63 @@ var cors = require('cors');
 app.use(express.static(__dirname + '/public'));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(session({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 var data = [];
+var configAuth = require('./auth');
 
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function (err, user) {
+    done(err, user);
+  });
+});
+
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+passport.use('facebook', new FacebookStrategy({
+    clientID: configAuth.facebookAuth.clientID,
+    clientSecret: configAuth.facebookAuth.clientSecret,
+    callbackURL: configAuth.facebookAuth.callbackURL,
+    profileFields: ['emails', 'displayName']
+  },
+  function(accessToken, refreshToken, profile, done) {
+
+      process.nextTick(function(){
+          User.findOne({'facebook.id' : profile.id}, function(err, user){
+            if(err){
+              return done(err);
+            }
+            if (user) {
+              console.log(profile);
+              return done(null, user);
+            }
+            else{
+
+              var newUser = new User();
+              newUser.facebook.id = profile.id;
+              newUser.facebook.token = accessToken;
+              newUser.facebook.name= profile.displayName;
+              newUser.facebook.email = profile.emails[0].value;
+
+
+              newUser.save(function(err){
+                if(err){
+                  throw(err);
+                }
+                return done(null, newUser);
+              })
+            }
+          })
+
+      });
+
+  }
+));
 
 app.listen(3000, function(){console.log("suhhh dude port 3000 is amaze")});
 mongoose.connect('mongodb://localhost/metagame');
@@ -67,12 +123,12 @@ app.delete('/api/review/:id', function(req, res) {
 
 });
 
+app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/' }));
+app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
 
-// app.get('/auth/facebook', passport.authenticate('facebook'));
-//
-// app.get('/auth/facebook/callback',
-//   passport.authenticate('facebook', { successRedirect: '/account',
-//                                       failureRedirect: '/' }));
+
 
 var pcGames = `48190
 44468

@@ -58,7 +58,7 @@ angular.module('app', ['ui.router'])
                 templateUrl: "./views/old.html",
                 controller: 'oldController',
 
-            });
+            })
             .state('login',{
                 url:'/login',
                 templateUrl: "./views/login.html",

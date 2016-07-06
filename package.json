@@ -20,11 +20,13 @@
     "angular": "^1.4.7",
     "angular-ui-router": "^0.2.15",
     "axios": "^0.12.0",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.1",
     "cors": "^2.7.1",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
     "mongoose": "^4.5.0",
+    "passport": "^0.3.2",
     "passport-facebook": "^2.1.1"
   }
 }
