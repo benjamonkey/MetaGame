@@ -1,27 +1,62 @@
-
-<p class="title">{{gameID.name}}</p>
+<p class="title">
+    {{gameID.name}}</p>
 <section class="singlecontainer">
 
-  <span class="img" ><img ng-src="{{gameID.image.small_url}}" alt="" /></span>
-  <span class="gamedescription">
+    <div class="imgWrap">
+        <div class="img"><img ng-src="{{gameID.image.small_url}}" alt="" /></div>
+    </div>
+    <span class="gamedescription">
     <p><strong>Description:</strong><br> {{gameID.deck}}</p>
     <p><strong>Release Date:</strong><br> {{gameID.original_release_date}}</p>
     <p><strong>Platform(s):</strong><br>
       <span ng-repeat="platform in gameID.platforms">{{platform.name}}<br></span>
     </p>
-    <p><strong>Developer(s):</strong><br>
-      <span ng-repeat="developer in gameID.developers">{{developer.name}}<br></span>
+    <p><strong>Developer(s):</strong>
+        <br>
+        <span ng-repeat="developer in gameID.developers">{{developer.name}}<br></span>
     </p>
-    <p><strong>Genre(s):</strong><br>
-      <span ng-repeat="genre in gameID.genres">{{genre.name}}<br></span>
+    <p><strong>Genre(s):</strong>
+        <br>
+        <span ng-repeat="genre in gameID.genres">{{genre.name}}<br></span>
     </p>
-    <p><strong>Similar Game(s):</strong><br>
-      <span ng-repeat="similar_game in gameID.similar_games">{{similar_game.name}}<br></span>
+    <p><strong>Similar Game(s):</strong>
+        <br>
+        <span ng-repeat="similar_game in gameID.similar_games">{{similar_game.name}}<br></span>
     </p>
 
+    </span>
+    <div class="review-main-wrap">
 
 
-  </span>
+        <form ng-submit="postReview(review, gameID)" ng-model="review" class="reviewwrapper">
+            <button ng-click="showbox = true" type="button" class='reviewbtn'>Add a Review</button>
+            <div ng-show="showbox" class="review-container">
+                <!-- reviews go here -->
+                <strong>Score (1-100) :</strong>
+                <input type="number" ng-model="review.rating" class="score"></input>
+                <br>
+                
+                <textarea rows="10" placeholder="Comment here...."ng-model="review.comment" class="commentbox"></textarea>
+                <br>
+                <button class="submitbtn" type="submit" ng-click="showbox = false">Submit Review</button>
+            </div>
+        </form>
+        <section class="review-container">
+            <div ng-repeat="review in reviews" class="review-content">
+                <div class="">Review By: <strong>{{review.postedBy}}</strong></div>
+                <div class="reviewbox">
+                    <p><strong>Game:</strong> {{review.name}}</p>
+                    <p><strong>Rating:</strong> {{review.rating}}</p>
+                    <p><strong>Comment:</strong> {{review.comment}}</p>
+                </div>
+
+
+            </div>
+        </section>
+
+    </div>
+
+
 
 
 

@@ -20,8 +20,12 @@ comment:  {
 postedBy:  {
   type: String,
   required: true
-    // type: mongoose.Schema.Types.ObjectId,
-    // ref: 'User'
+
+},
+gameID:  {
+  type: Number,
+
+
 }
 })
 

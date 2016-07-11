@@ -19,7 +19,7 @@ var data = [];
 var configAuth = require('./auth');
 
 passport.serializeUser(function(user, done) {
-  done(null, user.id);
+  done(null, user);
 });
 
 passport.deserializeUser(function(id, done) {
@@ -74,6 +74,7 @@ app.listen(3000, function(){console.log("suhhh dude port 3000 is amaze")});
 mongoose.connect('mongodb://localhost/metagame');
 
 app.get('/games/:searchTB', function(req, res){
+  console.log(req.user);
   console.log("getting games by name");
   axios.get(`http://www.giantbomb.com/api/games/?api_key=53f52d0efe71c57da724633715458b37cd07a278&format=json&sort=original_release_date:desc&filter=name:${req.params.searchTB}`)
    .then( resp => res.send(resp.data))
@@ -87,7 +88,10 @@ app.get('/game/:gameID', function(req, res){
 
 app.post('/api/review', function(req, res) {
   console.log('POST review');
+    req.body.postedBy = req.user.facebook.name;
+    req.body.rating = Number(req.body.rating);
       review.create(req.body, function(err, savedReview){
+        console.log(err, savedReview);
         if (err){
           res.status(500).json(err);
         }else {
@@ -100,7 +104,7 @@ app.post('/api/review', function(req, res) {
 
 app.get('/api/review', function(req, res) {
   console.log('GET reviews');
-      review.find(req.body, function(err, savedReview){
+      review.find(req.query, function(err, savedReview){
         if (err){
           res.status(500).json(err);
         }else {
@@ -112,7 +116,7 @@ app.get('/api/review', function(req, res) {
 });
 app.delete('/api/review/:id', function(req, res) {
   console.log(req.params.id);
-      review.findOneAndRemove({_id:req.params.id}, function(err, reviews){
+      review.findByIdAndRemove(req.params.id, function(err, reviews){
         if (err){
           res.status(500).json(err);
         }else {
@@ -124,9 +128,34 @@ app.delete('/api/review/:id', function(req, res) {
 });
 
 app.get('/auth/facebook/callback',
-  passport.authenticate('facebook', { successRedirect: '/',
+  passport.authenticate('facebook', { successRedirect: '/#/user',
+  // DOUBLE CHECK THIS
                                       failureRedirect: '/' }));
 app.get('/auth/facebook', passport.authenticate('facebook', {scope: 'email'}));
+
+app.get('/auth/me', function(req, res){
+  console.log(req.user);
+  res.send(req.user);
+
+});
+
+app.get('/auth/logout', function(req, res){
+  req.logout();
+})
+
+app.get('/api/userreview', function(req, res) {
+  console.log(req.user);
+      review.find({postedBy: req.user.facebook.name},function(err, savedReview){
+        if (err){
+          res.status(500).json(err);
+        }else {
+          res.status(200).json(savedReview);
+  }
+
+});
+
+});
+
 
 
 
@@ -254,7 +283,7 @@ function makeReq(gameID){
 }
 
 app.get('/gamepopular', function(req, res){
-  console.log("get dat popular games");
+  console.log("get popular games");
   var pcArr = [];
   var ps4Arr = [];
   var xboxArr = [];

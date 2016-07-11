@@ -59,10 +59,10 @@ angular.module('app', ['ui.router'])
                 controller: 'oldController',
 
             })
-            .state('login',{
-                url:'/login',
-                templateUrl: "./views/login.html",
-                controller: 'loginController',
+            .state('user',{
+                url:'/user',
+                templateUrl: "./views/user.html",
+                controller: 'userController',
 
             })
             .state('review',{

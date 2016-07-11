@@ -1,0 +1,34 @@
+<p>
+    <div class="user-account-container">
+        <div id="welcome-text"><strong>Welcome </strong>{{user.facebook.name}}!</div><br><br><br>
+        <div id="email-text"><strong>The Email currently linked to this account is: <br> </strong>{{user.facebook.email}}</div><br>
+        <div class="display-reviews"><div id="your-review">Your Reviews :</div>
+
+                <section class="review-container">
+
+                    <div ng-repeat="review in reviews" class="review-content">
+
+
+
+                        <div class="reviewbox">
+                            <div id="review-text">Review By: <strong>{{review.postedBy}}</strong></div><button ng-click="deleteReview(review._id )" type="button" class="delete-button"><div class="button-text">X</div></button><br>
+                            <div id="review-text"><strong>Game:</strong> {{review.name}}</div>
+                            <div id="review-text"><strong>Score:</strong> {{review.rating}}</div>
+                            <div id="review-text"><strong>Comment:</strong> {{review.comment}}</div>
+                        </div>
+                    </div>
+
+
+
+                </section>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <div class="delete-wrapper">
+      <button class="logout-button" ng-click="logout()" type="button" name="button">Logout</button>
+    </div>
+</p>

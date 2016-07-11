@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html ng-app="app">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="./css/main.css">
     <title>MetaGame</title>
-  </head>
-  <body ng-controller="mainController">
+</head>
+
+<body ng-controller="mainController">
 
 
     <section class="container">
-      <section class="header"><img class="tablogo" src="img/LogoMakr copy.png" alt="" />
-        <section class="wrapper">
-          <div class="home menuitem"><button id="menubutton" ui-sref="home">HOME</button></div>
-          <div class="shop menuitem"><button id="menubutton" href="http://www.gamestop.com/" target="_blank" >SHOP HERE</button></div>
-          <div class="searchBox menuitem"><form ng-submit='getGameName(searchTB)' class="">
-              <input ng-model='searchTB' type="textbox" name="name" placeholder='Search for specific game...' class="search">
-            </form>
+        <section class="header"><img class="tablogo" src="img/LogoMakr copy.png" alt="" />
+            <section class="wrapper">
+                <div class="home menuitem">
+                    <button id="menubutton" ui-sref="home">HOME</button>
+                </div>
+                <div class="shop menuitem">
+                    <a id="menubutton"target="_blank" href="https://www.amazon.com/s/ref=nb_sb_noss?url=search-alias%3Dvideogames&field-keywords=">SHOP HERE</a>
+                </div>
+                <div class="searchBox menuitem">
+                    <form ng-submit='getGameName(searchTB)' class="">
+                        <input ng-model='searchTB' type="textbox" name="name" placeholder='Search for specific game...' class="search">
+                    </form>
 
-          </div>
-          <div class="dropdown" id="dropdownham">
+                </div>
 
-            <button class="hambutton"><img class="hamburger" src="img/LogoMakr (7).png" alt="" /></button>
-              <div id="ham-style">
-                <a href="#/login">Log In</a>
-                <a href="account">Account</a>
-                <a href="signup">Sign Up</a>
+
+
+            </section>
+            <div class="button-wrap">
+              <div class="social-wrap">
+                  <button id="facebook" onclick="location.href='/auth/facebook';">Login with Facebook</button>
+
+              </div>
+              <div class="account-wrap">
+                  <a ui-sref="user"><button id="account">Account</button></a>
+
+              </div>
+            </div>
+
+
+        </section>
+        <div class="viewing">Most Popular Games:</div>
+        <section class="tabs">
+            <div class="dropdown">
+
+                <button class="dropbtn" id="tab">PLATFORM<img class="arrow" src="img/dropdown.png" alt="" /></button>
+                <div class="dropdown-content">
+                    <a href="#/pc" onclick='location.reload(true);'>PC</a>
+                    <a href="#/ps4" onclick='location.reload(true);'>Playstation 4</a>
+                    <a href="#/xbox" onclick='location.reload(true);'>Xbox One</a>
+                    <a href="#/wii" onclick='location.reload(true);'>Wii</a>
+                    <a href="#/old" onclick='location.reload(true);'>Old School</a>
+
+                </div>
 
             </div>
-          </div>
+            <div class="dropdown">
 
+                <button class="dropbtn" id="tab">GENRE<img class="arrow" src="img/dropdown.png" alt="" /></button>
+                <div class="dropdown-content">
+                    <a ng-repeat="genre in gameID.genres">First Person Shooter</a>
+                    <a href="#/fps" onclick='location.reload(true);'>First-Person-Shooter</a>
+                    <a href="#/rpg" onclick='location.reload(true);'>RPG</a>
+                    <a href="#/moba" onclick='location.reload(true);'>MOBA</a>
+                </div>
+            </div>
 
-          </div>
+            <div class="dropdown">
+
+                <button class="dropbtn" id="tab">MORE<img class="arrow" src="img/dropdown.png" alt="" /></button>
+                <div class="dropdown-content">
+                    <a href="https://www.esrb.org/ratings/ratings_guide.aspx" target="_blank">ESRB Ratings</a>
+                    <a href="http://www.metacritic.com/browse/games/release-date/coming-soon/all/date" target="_blank">Upcomming Releases</a>
+                    <a href="https://wallpaperscraft.com/catalog/games/1920x1080" target="_blank">Video Game Wallpapers</a>
+                </div>
+            </div>
         </section>
 
-
-      </section>
-      <div class="viewing">Most Popular Games:</div>
-      <section class="tabs">
-        <div class="dropdown">
-
-          <button class="dropbtn" id="tab">PLATFORM<img class="arrow" src="img/dropdown.png" alt="" /></button>
-            <div class="dropdown-content">
-              <a href="#/pc" onclick='location.reload(true);'>PC</a>
-              <a href="#/ps4" onclick='location.reload(true);'>Playstation 4</a>
-              <a href="#/xbox" onclick='location.reload(true);'>Xbox One</a>
-              <a href="#/wii" onclick='location.reload(true);'>Wii</a>
-              <a href="#/old" onclick='location.reload(true);'>Old School</a>
-
-          </div>
-
+        <ui-view></ui-view>
+        <div class="footerwrap">
+            <footer class="footer">
+                <a class="twitter" href="https://twitter.com/chucknorris?lang=en"></a>
+                <a class="facebook" href="https://www.facebook.com/trollface.ragefaces/"></a>
+                <a class="email" href="https://mail.google.com/mail/?view=cm&fs=1&to=UmadBro?@trolololol.com&su=SUBJECT&body=BODY&bcc=someone.wholovesbeingtrolled@trololo.com"></a>
+            </footer>
         </div>
-        <div class="dropdown">
-
-          <button class="dropbtn" id="tab">GENRE<img class="arrow" src="img/dropdown.png" alt="" /></button>
-            <div class="dropdown-content">
-              <a ng-repeat="genre in gameID.genres">First Person Shooter</a>
-              <a href="#/fps" onclick='location.reload(true);'>First-Person-Shooter</a>
-              <a href="#/rpg" onclick='location.reload(true);'>RPG</a>
-              <a href="#/moba" onclick='location.reload(true);'>MOBA</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-
-          <button class="dropbtn" id="tab">MORE<img class="arrow" src="img/dropdown.png" alt="" /></button>
-            <div class="dropdown-content">
-              <a href="https://www.esrb.org/ratings/ratings_guide.aspx" target="_blank">ESRB Ratings</a>
-              <a href="http://www.metacritic.com/browse/games/release-date/coming-soon/all/date" target="_blank">Upcomming Releases</a>
-              <a href="https://wallpaperscraft.com/catalog/games/1920x1080" target="_blank">Video Game Wallpapers</a>
-          </div>
-        </div>
-      </section>
-
-      <ui-view></ui-view>
-      <div class="footerwrap">
-        <footer class="footer">
-          <a class="twitter" href="https://twitter.com/chucknorris?lang=en"></a>
-          <a class="facebook" href="https://www.facebook.com/trollface.ragefaces/"></a>
-          <a class="email" href="https://mail.google.com/mail/?view=cm&fs=1&to=UmadBro?@trolololol.com&su=SUBJECT&body=BODY&bcc=someone.wholovesbeingtrolled@trololo.com"></a>
-        </footer>
-      </div>
 
 
 
@@ -96,9 +103,10 @@
     <script src="js/angular.js"></script>
     <script src="js/angular-ui-router.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/mainService.js"></script>
     <script src="js/mainController.js"></script>
     <script src="js/singleGameController.js"></script>
-    <script src="js/mainService.js"></script>
+    <script src="js/userController.js"></script>
     <script src="js/oldController.js"></script>
     <script src="js/pcController.js"></script>
     <script src="js/ps4Controller.js"></script>
@@ -108,12 +116,11 @@
     <script src="js/mobaController.js"></script>
     <script src="js/rpgController.js"></script>
     <script src="js/loginController.js"></script>
-    <script src="models/review.js"></script>
-    <script src="passport.js"></script>
-    <script src="auth.js"></script>
-    <script src="user.js"></script>
 
 
 
-  </body>
+
+
+</body>
+
 </html>

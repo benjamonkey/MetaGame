@@ -1,7 +1,8 @@
 body {
-    background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/White-wall-Seamless-Pattern-For-Website-Background.jpg");
+    background-image: url("http://www.designbolts.com/wp-content/uploads/2012/12/Skeletal-Weave-White-Tileable-pattern-for-website-background.jpg");
     margin: 0;
     padding: 0;
+    font-family: sans-serif;
 }
 
 .container{
@@ -23,7 +24,6 @@ body {
   position: absolute;
   top: 43px;
   left: 43vw;
-  width: 100vw;
   max-width: 726px;
 
 }
@@ -45,85 +45,140 @@ body {
   border: none;
   background: none;
   margin-right: 18px;
+  -webkit-transition: all .30s;
+  outline: none;
+  text-decoration: none;
+  color: black;
 }
 #menubutton:hover{
   color: orange;
   font-size: 17px;
   cursor: pointer;
+  -webkit-transition: all .30s;
 }
 
-.shop{
-
-
-}
 .searchBox{
   flex: 1;
+
 }
 .search{
   height: 35px;
   width: 250px;
   font-size: 16px;
   margin-left: 30px;
+  -webkit-transition: all .30s;
+
+}
+.search:focus{
+  outline: none;
+  -webkit-transition: all .30s;
+  box-shadow: 0 6px 4px -4px gray;
+
 }
 
-/*HAMBURGER CSS*/
+/*ACCOUNT AND FACEBOOK BUTTONS CSS*/
 
-.hamburger{
-  width: 50px;
-  height: 40px;
+@import "compass/css3";
+
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans);
+
+.button-wrap{
+
   float: right;
-  margin-right: 40px;
-
+  margin-top: 26px;
+  width: 140px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
 }
-.hambutton{
+div.account-wrap button{
+  height: 35px;
   background: none;
   border: none;
-
-}
-.hamburger:hover{
-  cursor: pointer;
-
-}
-#dropdownham{
+  background-size: 35px 35px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  border-radius: 4px;
+  color: black;
+  font-family:"Merriweather Sans", sans-serif;
+  font-size: 15px;
+  width: 140px;
+  border-bottom: 2px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  box-shadow: 0 6px 4px -4px gray;
   float: right;
-
+  font-weight: bold;
 }
-#ham-style {
-
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 50px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
-
+.social-wrap{
+  padding-bottom: 7px;
 }
 
-#ham-style a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-    
+ div.social-wrap button {
+    padding-right: 45px;
+    height: 35px;
+    background: none;
+    border: none;
+    background-size: 35px 35px;
+    background-position: right center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    color: white;
+    font-family:"Merriweather Sans", sans-serif;
+    font-size: 13px;
+    width: 140px;
+    border-bottom: 2px solid transparent;
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+    box-shadow: 0 6px 4px -4px gray;
+    text-shadow: rgba(0, 0, 0, .5) -1px -1px 0;
+    float: right;
+
 }
-
-#ham-style a:hover {background-color: orange}
-
-.dropdown:hover #ham-style {
-    display: block;
-
+button#facebook {
+    border-color: #2d5073;
+    background-color: #3b5998;
+    background-image: url(http://icons.iconarchive.com/icons/danleech/simple/512/facebook-icon.png);
+    outline: none;
+    -webkit-transition: all .40s;
 }
-
-.dropdown:hover .hambutton{
-    color: orange;
-    font-size: 19px;
+button#account {
+    background-color: orange;
     font-weight: bold;
-
+    outline: none;
+    -webkit-transition: all .40s;
+}
+div.social-wrap button:active {
+    background-color: #222;
+}
+div.account-wrap button:active{
+  background-color: #222;
+}
+div.social-wrap button:hover {
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  -moz-transition: all .40s;
+  -o-transition: all .40s;
+  -webkit-transition: all .40s;
+  transition: all .40s;
+}
+div.account-wrap button:hover {
+    border-radius: 20px;
+    cursor: pointer;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    -moz-transition: all .40s;
+    -o-transition: all .40s;
+    -webkit-transition: all .40s;
+    transition: all .40s;
 }
 
 
 /*CURRENT VIEWING*/
 
 .viewing{
+  font-family: sans-serif;
+  margin-left: 20px;
   height: 80px;
   width: 600px;
   font-size: 50px;
@@ -139,16 +194,18 @@ body {
   justify-content: center;
   position: relative;
   margin-bottom: 20px;
+  -webkit-transition: all .40s;
 
 }
 #tab{
   height: 70px;
   width: 250px;
-  background: white;
+  background: #E1E6E6;
   text-align: center;
   line-height: 45px;
   margin: 5px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  -webkit-transition: all .40s;
 }
 .arrow{
   height: 25px;
@@ -159,6 +216,7 @@ body {
 
 }
 
+
 /*DROPDOWN CSS*/
 
 .dropbtn {
@@ -168,11 +226,13 @@ body {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    -webkit-transition: all .40s;
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
+    -webkit-transition: all .40s;
 }
 
 .dropdown-content {
@@ -181,6 +241,7 @@ body {
     background-color: #f9f9f9;
     min-width: 255px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    -webkit-transition: all .40s;
 }
 
 .dropdown-content a {
@@ -188,18 +249,24 @@ body {
     padding: 12px 16px;
     text-decoration: none;
     display: block;
+    -webkit-transition: all .40s;
 }
 
-.dropdown-content a:hover {background-color: orange}
+.dropdown-content a:hover  {
+  background-color: orange;
+  -webkit-transition: all .60s;
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
+    -webkit-transition: all .40s;
 }
 
 .dropdown:hover .dropbtn {
     color: orange;
     font-size: 19px;
     font-weight: bold;
+    -webkit-transition: all .40s;
 }
 
 
@@ -224,10 +291,24 @@ body {
 }
 .gameart{
   margin-top: 20px;
+
 }
 .picture{
   width: 250px;
   height: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+  -webkit-transition: all .40s;
+}
+.picture:hover{
+  border-radius: 65px;
+  cursor: pointer;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.7);
+  -moz-transition: all .40s;
+  -o-transition: all .40s;
+  -webkit-transition: all .40s;
+  transition: all .40s;
+
+
 }
 .gametitle{
   text-align: center;
@@ -245,7 +326,6 @@ body {
 }
 .singlecontainer{
   width: 100%;
-  height: auto;
   display: flex;
 
 }
@@ -254,14 +334,18 @@ body {
   display: flex;
   flex-direction: column;
   margin-left: 20px;
+  margin-right: 40px;
+  margin-top: 40px;
 
+
+}.img{
+  box-shadow: 0px 12px 25px 0px rgba(0,0,0,0.8);
 
 }
-.img{
+.imgWrap{
+  margin-top: 50px;
   width: auto;
   height: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
-  margin-bottom: 20px;
 }
 
 /*FOOTER CSS*/
@@ -303,4 +387,140 @@ body {
   width: 50px;
   height: 50px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
+}
+
+/*MAKE REVIEw box css*/
+
+.reviewwrapper{
+  width: auto;
+  height: auto;
+}
+.review-container{
+  padding: 0;
+  margin-right: 5px;
+}
+.reviewbtn{
+  width: 200px;
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  background: #E1E6E6;
+  box-shadow: 0px 12px 25px 0px rgba(0,0,0,0.4);
+  -webkit-transition: all .40s;
+  outline: none;
+  color: black;
+  border-radius: 5px;
+  margin-bottom: 15px;
+
+}
+.reviewbtn:hover{
+  border-radius: 30px;
+  background: orange;
+  -webkit-transition: all .40s;
+  color: #E1E6E6;
+}
+
+.submitbtn{
+  width: 200px;
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  background: #E1E6E6;
+  box-shadow: 0px 12px 25px 0px rgba(0,0,0,0.4);
+  -webkit-transition: all .40s;
+  outline: none;
+  margin-bottom: 15px;
+}
+.submitbtn:hover{
+  border-radius: 30px;
+  background: green;
+  -webkit-transition: all .40s;
+  color: #E1E6E6;
+}
+
+/*SHOW rEVIEW CSS*/
+
+.score{
+  margin-bottom: 15px;
+  width: 50px;
+  height: 30px;
+  font-size: 15px;
+  outline: none;
+}
+.commentbox{
+  font-size: 15px;
+  height: 150px;
+  width: 375px;
+  outline: none;
+  margin-bottom: 15px;
+}
+.reviewbox{
+  border: 2px solid black;
+  height: auto;
+  width: 375px;
+  padding: 20px;
+  margin-right: 10px;
+}
+#review-text{
+  padding: 5px;
+}
+.review-main-wrap{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+.delete-button{
+  margin-right: 10px;
+  float: right;
+  font-size: 15px;
+  width: 30px;
+  height: 30px;
+  background: orange;
+  border: none;
+}
+.delete-button:hover{
+  border: 1px solid black;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+}
+
+.user-account-container{
+  padding-left: 100px;
+  margin-top: 50px;
+  font-size: 15px;
+  font-family: monospace;
+}
+.display-reviews{
+  width: 425px;
+  border: 1px solid black;
+  padding: 10px;
+}
+.delete-wrapper{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+}
+.logout-button{
+  height: 40px;
+  width: 100px;
+  font-size: 15px;
+}
+.logout-button:hover{
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+  font-size: 20px;
+  border: 2px solid orange;
+  background: white;
+}
+#your-review{
+  font-size: 20px;
+  font-weight: bold;
+}
+#welcome-text{
+  font-size: 40px;
+  text-align: center;
+}
+#email-text{
+  font-size: 20px;
 }
